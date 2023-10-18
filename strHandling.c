@@ -41,3 +41,69 @@ int length(char *ch)
 		l++;
 	return (l);
 }
+
+/**
+ * compare - the compare function
+ * @ch1: string 1
+ * @ch2: string 2
+ *
+ * Return: Integer.
+ */
+int compare(char *ch1, char *ch2)
+{
+	int comp;
+
+	comp = (int)*ch1 - (int)*ch2;
+	while (*ch1)
+	{
+		if (ch1 != ch2)
+			break;
+		ch1++;
+		ch2++;
+		comp = (int)*ch1 - (int)*ch2;
+	}
+	return (comp);
+}
+
+/**
+ * coppy - the coppy function
+ * @to: string 1
+ * @from: string 2
+ *
+ * Return: String.
+ */
+char *coppy(char *to, char *from)
+{
+	int i = 0;
+
+	while (from[i])
+	{
+		to[i] = from[i];
+		i++;
+	}
+	to[i] = '\0';
+	return (to);
+}
+
+/**
+ * catt - the catt function
+ * @to: string 1
+ * @from: string 2
+ *
+ * Return: String.
+ */
+char *catt(char *to, char *from)
+{
+	char *pointer = to;
+
+	while (*pointer)
+		pointer++;
+	while (*pointer)
+	{
+		*pointer = *from;
+		pointer++;
+		from++;
+	}
+	*pointer = '\0';
+	return (to);
+}
