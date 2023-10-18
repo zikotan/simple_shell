@@ -18,7 +18,7 @@ char *duplicate(const char *dup)
 		size++;
 		dup++;
 	}
-	dup -= size;
+	dup = dup - size;
 	p = malloc(sizeof(char) * (size + 1));
 	if (p == NULL)
 		return (NULL);
