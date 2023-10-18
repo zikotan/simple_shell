@@ -26,3 +26,18 @@ char *duplicate(const char *dup)
 		p[i] = dup[i];
 	return (p);
 }
+
+/**
+ * length - the length function
+ * @ch: the string
+ *
+ * Return: Integer.
+ */
+int length(char *ch)
+{
+	int l = 0;
+
+	while (ch[l])
+		l++;
+	return (l);
+}
