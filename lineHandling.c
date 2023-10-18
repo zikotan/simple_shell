@@ -9,7 +9,7 @@
  */
 int execLine(char **cmd, char **argv)
 {
-	pis_t childProc;
+	pid_t childProc;
 	int stat;
 
 	childProc = fork();
@@ -41,9 +41,9 @@ char *readLine(void)
 	size_t size = 0;
 	ssize_t nread;
 
-	if (isatty(STDIN_FILNO))
-		write(STDOUT_FILNO, "$ ", 2);
-	nread = getLine(&line, &size, stdin);
+	if (isatty(STDIN_FILENO))
+		write(STDOUT_FILENO, "$ ", 2);
+	nread = getline(&line, &size, stdin);
 	if (nread == -1)
 	{
 		free(line);

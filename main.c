@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 		line = readLine();
 		if (line == NULL)
 		{
-			if (isatty(DTDIN_FILENO))
+			if (isatty(STDIN_FILENO))
 				write(STDOUT_FILENO, "\n", 1);
 			return (stat);
 		}
@@ -26,6 +26,6 @@ int main(int argc, char **argv)
 		cmd = splitLine(line);
 		if (!cmd)
 			continue;
-		stat = execLine(cmd, agrv);
+		stat = execLine(cmd, argv);
 	}
 }
