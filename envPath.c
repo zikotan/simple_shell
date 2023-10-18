@@ -13,6 +13,8 @@ char *findEnv(char *arg)
 
 	for (i = 0; environ[i]; i++)
 	{
+		if (i == 2)
+			continue;
 		help = duplicate(environ[i]);
 		left = strtok(help, "=");
 		if (compare(left, arg) == 0)
@@ -60,7 +62,7 @@ char *findPath(char *cmd)
 		{
 			coppy(CMD, stock);
 			catt(CMD, "/");
-			coppy(CMD, cmd);
+			catt(CMD, cmd);
 			if (stat(CMD, &stt) == 0)
 			{
 				free(envPath);

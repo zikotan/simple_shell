@@ -4,6 +4,7 @@
  * execLine - the execLine function
  * @cmd: command
  * @argv: argument value
+ * @ind: index
  *
  * Return: Integer.
  */
