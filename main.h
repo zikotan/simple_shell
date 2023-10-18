@@ -10,7 +10,7 @@
 #include <sys/stat.h>
 #include <sys/wait.h>
 
-#define LIM "\t\n"
+#define LIM " \t\n"
 
 extern char **environ;
 char *findEnv(char *arg);

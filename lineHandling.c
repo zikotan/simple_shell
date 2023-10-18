@@ -19,7 +19,7 @@ int execLine(char **cmd, char **argv)
 		{
 			perror(argv[0]);
 			free2DArray(cmd);
-			exit(0);
+			exit(127);
 		}
 	}
 	else
