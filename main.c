@@ -26,6 +26,6 @@ int main(int argc, char **argv)
 		cmd = splitLine(line);
 		if (!cmd)
 			continue;
-		stat = execLine(cmd, argv);
+		stat = execLine(cmd, argv, ind);
 	}
 }

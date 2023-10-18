@@ -23,7 +23,7 @@ void myError(char *id, char *cmd, int i);
 
 char *readLine(void);
 char **splitLine(char *line);
-int execLine(char **cmd, char **argv);
+int execLine(char **cmd, char **argv, int ind);
 
 char *duplicate(const char *dup);
 int compare(char *ch1, char *ch2);

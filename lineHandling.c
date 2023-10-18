@@ -7,25 +7,35 @@
  *
  * Return: Integer.
  */
-int execLine(char **cmd, char **argv)
+int execLine(char **cmd, char **argv, int ind)
 {
 	pid_t childProc;
 	int stat;
+	char *CMD;
 
+	CMD = findPath(cmd[0]);
+	if (!CMD)
+	{
+		myError(argv[0], cmd[0], ind);
+		free2DArray(cmd);
+		return (127);
+	}
 	childProc = fork();
 	if (childProc == 0)
 	{
-		if (execve(cmd[0], cmd, environ) == -1)
+		if (execve(CMD, cmd, environ) == -1)
 		{
-			perror(argv[0]);
+			free(CMD);
+			CMD = NULL;
 			free2DArray(cmd);
-			exit(127);
 		}
 	}
 	else
 	{
 		waitpid(childProc, &stat, 0);
 		free2DArray(cmd);
+		free(CMD);
+		CMD = NULL;
 	}
 	return (WEXITSTATUS(stat));
 }
