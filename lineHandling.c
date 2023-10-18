@@ -51,3 +51,51 @@ char *readLine(void)
 	}
 	return (line);
 }
+
+/**
+ * splitLine - the splitLine function
+ * @line: the line
+ *
+ * Return: String.
+ */
+
+char **splitLine(char *line)
+{
+	char *split = NULL, *help = NULL, **cmd = NULL;
+	int count = 0, i = 0;
+
+	if (!line)
+		return (NULL);
+	help = duplicate(line);
+	split = strtok(help, LIM);
+	if (split == NULL)
+	{
+		free(line);
+		line = NULL;
+		free(help);
+		help = NULL;
+		return (NULL);
+	}
+	while (split)
+	{
+		count++;
+		split = strtok(NULL, LIM);
+	}
+	free(help), help = NULL;
+	cmd = malloc(sizeof(char *) * (count + 1));
+	if (!cmd)
+	{
+		free(line), line = NULL;
+		return (NULL);
+	}
+	split = strtok(line, LIM);
+	while (split)
+	{
+		cmd[i] = duplicate(split);
+		split = strtok(NULL, LIM);
+		i++;
+	}
+	free(line), line = NULL;
+	cmd[i] = NULL;
+	return (cmd);
+}
