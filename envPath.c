@@ -68,6 +68,7 @@ char *findPath(char *cmd)
 			}
 			free(CMD);
 			CMD = NULL;
+			stock = strtok(NULL, ":");
 		}
 	}
 	free(envPath);
