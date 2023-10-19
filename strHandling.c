@@ -98,7 +98,7 @@ char *catt(char *to, char *from)
 
 	while (*pointer)
 		pointer++;
-	while (*pointer)
+	while (*from)
 	{
 		*pointer = *from;
 		pointer++;
